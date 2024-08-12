@@ -1,6 +1,5 @@
 {% set version = '1.0-6' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-propagate
@@ -13,8 +12,7 @@ source:
   sha256: 47c33538cc6ccc4c6fefca49ca540b2c0b74b1b07e9f7890d3b4aa2cc3b7519e
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  number: 3
 
   rpaths:
     - lib/R/lib/
@@ -23,7 +21,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -42,7 +42,6 @@ requirements:
 
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-mass
     - r-rcpp >=0.10.1
     - r-ff
