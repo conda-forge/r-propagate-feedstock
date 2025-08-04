@@ -11,7 +11,7 @@ Home: https://CRAN.R-project.org/package=propagate
 
 Package license: GPL-2.0-or-later
 
-Summary: Propagation of uncertainty using higher-order Taylor expansion and Monte Carlo simulation.
+Summary: Propagation of uncertainty using higher-order Taylor expansion and Monte Carlo simulation. Calculations of propagated uncertainties are based on matrix calculus including covariance structure according to Arras 1998 <doi:10.3929/ethz-a-010113668> (first order), Wang & Iyer 2005 <doi:10.1088/0026-1394/42/5/011> (second order) and BIPM Supplement 1 (Monte Carlo) <doi:10.59161/JCGM101-2008>.
 
 About r-propagate
 -----------------
@@ -20,7 +20,7 @@ Home: https://CRAN.R-project.org/package=propagate
 
 Package license: GPL-2.0-or-later
 
-Summary: Propagation of uncertainty using higher-order Taylor expansion and Monte Carlo simulation.
+Summary: Propagation of uncertainty using higher-order Taylor expansion and Monte Carlo simulation. Calculations of propagated uncertainties are based on matrix calculus including covariance structure according to Arras 1998 <doi:10.3929/ethz-a-010113668> (first order), Wang & Iyer 2005 <doi:10.1088/0026-1394/42/5/011> (second order) and BIPM Supplement 1 (Monte Carlo) <doi:10.59161/JCGM101-2008>.
 
 Current build status
 ====================

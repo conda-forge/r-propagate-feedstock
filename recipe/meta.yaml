@@ -1,4 +1,4 @@
-{% set version = '1.0-6' %}
+{% set version = "1.0-7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,14 +9,17 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/propagate_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/propagate/propagate_{{ version }}.tar.gz
-  sha256: 47c33538cc6ccc4c6fefca49ca540b2c0b74b1b07e9f7890d3b4aa2cc3b7519e
+  sha256: 7fdd9ea33b35fd9c6aa56befbe79f8a9f3e675d8c42d26155438c1bf8ee52b48
 
 build:
-  number: 3
-
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -31,7 +34,6 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-
   host:
     - r-base
     - r-mass
@@ -39,7 +41,6 @@ requirements:
     - r-ff
     - r-minpack.lm
     - r-tmvtnorm
-
   run:
     - r-base
     - r-mass
@@ -55,9 +56,12 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=propagate
-  license: GPL-2.0-or-later 
+  license: GPL-2.0-or-later
   summary: Propagation of uncertainty using higher-order Taylor expansion and Monte Carlo simulation.
-
+    Calculations of propagated uncertainties are based on matrix calculus including
+    covariance structure according to Arras 1998 <doi:10.3929/ethz-a-010113668> (first
+    order), Wang & Iyer 2005 <doi:10.1088/0026-1394/42/5/011> (second order) and BIPM
+    Supplement 1 (Monte Carlo) <doi:10.59161/JCGM101-2008>.
   license_family: GPL2
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
