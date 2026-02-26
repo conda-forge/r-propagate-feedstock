@@ -36,18 +36,18 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-mass
-    - r-rcpp >=0.10.1
-    - r-ff
+    - r-rcpp
+    - r-copula
+    - r-crayon
+    - r-hdf5r
     - r-minpack.lm
-    - r-tmvtnorm
   run:
     - r-base
-    - r-mass
-    - r-rcpp >=0.10.1
-    - r-ff
+    - r-rcpp
+    - r-copula
+    - r-crayon
+    - r-hdf5r
     - r-minpack.lm
-    - r-tmvtnorm
 
 test:
   commands:
