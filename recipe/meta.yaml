@@ -1,4 +1,4 @@
-{% set version = "1.1-0" %}
+{% set version = "1.2-0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/propagate_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/propagate/propagate_{{ version }}.tar.gz
-  sha256: 4c0b897978f4305404cd7b63a826f24b7561bb464f4d9c4e546d2f35c5e33902
+  sha256: 324e70b52eae5f08bfc0e6d1f3ebc7809fd7395700771565b35c46d7c85b248a
 
 build:
   number: 0
