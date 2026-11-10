@@ -23,12 +23,12 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ stdlib("c") }}                # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -37,17 +37,17 @@ requirements:
   host:
     - r-base
     - r-rcpp
-    - r-copula
     - r-crayon
     - r-hdf5r
     - r-minpack.lm
+    - r-nortest
   run:
     - r-base
     - r-rcpp
-    - r-copula
     - r-crayon
     - r-hdf5r
     - r-minpack.lm
+    - r-nortest
 
 test:
   commands:
@@ -62,26 +62,9 @@ about:
   license_family: GPL2
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - khughitt
-
-# Package: propagate
-# Type: Package
-# LazyLoad: no
-# LazyData: no
-# Title: Propagation of Uncertainty
-# Version: 1.0-6
-# Date: 2018-05-02
-# Author: Andrej-Nikolai Spiess <a.spiess@uke.uni-hamburg.de>
-# Maintainer: Andrej-Nikolai Spiess <a.spiess@uke.uni-hamburg.de>
-# Description: Propagation of uncertainty using higher-order Taylor expansion and Monte Carlo simulation.
-# License: GPL (>= 2)
-# Depends: R (>= 2.13.0), MASS, tmvtnorm, Rcpp (>= 0.10.1), ff, minpack.lm
-# LinkingTo: Rcpp
-# NeedsCompilation: yes
-# Packaged: 2018-05-06 09:00:48 UTC; ans
-# Repository: CRAN
-# Date/Publication: 2018-05-06 17:08:12 UTC
